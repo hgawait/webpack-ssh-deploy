@@ -1,6 +1,6 @@
 {
   "name": "webpack-ssh-deploy",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "a webpack deploy plugin",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,11 @@
     "build": "webpack"
   },
   "author": "huhan",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hgawait/webpack-ssh-deploy"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
