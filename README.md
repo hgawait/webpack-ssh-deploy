@@ -29,6 +29,7 @@ module.exports = [
 wepack.config.js
 
 ```js
+const WebpackSshDeploy = require("webpack-ssh-deploy").default
 module.exports = {
   ...
   plugins: [new WebpackSshDeploy(require("./deploy-config")), ...]
