@@ -11,10 +11,12 @@ const __dirname = path.resolve();
 
 // 可单独执行
 async function main(config) {
-  const SELECT_CONFIG = (await helper(config)).value;
+  let select = await helper(config);
+  const SELECT_CONFIG = select.value;
   console.log("您选择了部署 " + SELECT_CONFIG.name);
+  console.log("项目类型 " + select.type);
   const curTime = new Date().toLocaleDateString().replace(/\//g, "");
-  SELECT_CONFIG.targetFile = `crm_PC_${curTime}.zip`;
+  SELECT_CONFIG.targetFile = `crm_${select.type}_${curTime}.zip`;
   const localFile = path.resolve(__dirname, "./" + SELECT_CONFIG.targetFile); // 待上传本地文件s
   SELECT_CONFIG.openCompress
     ? await compressFile(SELECT_CONFIG.targetDir, localFile)

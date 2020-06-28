@@ -1,14 +1,20 @@
 import inquirer from "inquirer";
 
 const selectTip = "project name:";
+const projectType = "project type:";
 const options = [
   {
     type: "list",
     name: selectTip,
     message: "Which project do you want to deploy?",
-    choices: []
-    // new inquirer.Separator() // 分割线
-  }
+    choices: [],
+  },
+  {
+    type: "list",
+    name: projectType,
+    message: "Select project type:",
+    choices: ["Mobile", "PC"],
+  },
 ];
 
 // 显示选择
@@ -17,10 +23,13 @@ function showHelper(config) {
     initHelper(config); // 初始化helper
     inquirer
       .prompt(options)
-      .then(answers => {
-        resolve({ value: findInfoByName(config, answers[selectTip]) }); // 查找所选配置项
+      .then((answers) => {
+        resolve({
+          value: findInfoByName(config, answers[selectTip]),
+          type: answers[projectType],
+        }); // 查找所选配置项
       })
-      .catch(err => {
+      .catch((err) => {
         reject(console.error(" helper显示或选择出错！", err));
       });
   });
