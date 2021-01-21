@@ -1,8 +1,8 @@
 # webpack-ssh-deploy
 
-a webpack ssh deploy plugin
+a a webpack ssh deploy plugin
 
-## Usage
+## Usage a
 
 deploy-config.js
 
